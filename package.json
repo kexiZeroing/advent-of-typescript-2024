@@ -1,0 +1,17 @@
+{
+  "name": "advent-of-typescript-2024",
+  "version": "1.0.0",
+  "description": "type challenges",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "type-testing": "^0.2.0",
+    "typescript": "^5.7.2"
+  }
+}
