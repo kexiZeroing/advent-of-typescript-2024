@@ -7,7 +7,16 @@
 // https://www.sandromaglione.com/articles/covariant-contravariant-and-invariant-in-typescript
 // https://www.typescriptlang.org/docs/handbook/2/generics.html#variance-annotations
 
-// add invariant annotation
+// e.g. covariant annotation
+// interface Producer<out T> {
+//   make(): T;
+// }
+// e.g. contravariant annotation
+// interface Consumer<in T> {
+//   consume: (arg: T) => void;
+// }
+
+// add invariant annotation here
 type Demand<in out T> = {
   demand: T;
 }
