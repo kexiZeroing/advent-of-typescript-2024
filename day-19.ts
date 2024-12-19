@@ -1,3 +1,9 @@
+/**
+ * Rules:
+ * 1. Different ways of declaring variables (let, const, and var)
+ * 2. Any function call that takes a parameter
+ * 3. Various amounts of spacing, tabs, and empty lines
+ */
 type Parse<Code> = Code extends `${infer Line}\n${infer Rest}`
 	? Line extends `${string}${"let" | "const" | "var"} ${infer ID} = ${string}`
 		? [{ id: ID; type: "VariableDeclaration" }, ...Parse<Rest>]
