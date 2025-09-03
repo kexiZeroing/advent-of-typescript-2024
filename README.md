@@ -36,3 +36,33 @@ import { Expect, Equal } from "type-testing";
 const hello = shoutItOutLoud('hello');
 type test_hello = Expect<Equal<typeof hello, 'HELLO!!!'>>;
 ```
+
+## Advent of Typescript 2023
+Advent of Typescript 2023 Solution Walkthrough from lihautan: https://www.youtube.com/watch?v=TSAp8cAcHQU
+
+```ts
+type Foo<T> = {
+  [K in keyof T]: T[K]
+}
+
+type Reverse<T extends string> = 
+  T extends `${infer First}${infer Rest}` ? `${Reverse<Rest>}${First}` : T;
+
+type CreateArray<V extends string, Len extends number, Arr extends any[] = []> = 
+  Arr['length'] extends Len ? Arr : CreateArray<V, Len, [...Arr, V]>;
+
+type FindX<Arr extends any[], Val extends any[] = []> = 
+  Arr extends [infer First, ...infer Rest] 
+    ? First extends 'X' ? Val['length'] : FindX<Rest, [...Val, '']> 
+    : never;
+
+type FindXIn2D<
+  Map extends any[][],
+  Row extends any[] = [],
+  Col extends anyp[] = []
+> = Map[Row['length']][Col['length']] extends 'X'
+  ? [Row['length'], Col['length']]
+  : Col['length'] extends Map[0]['length'] 
+    ? FindXIn2D<Map, [...Row, ''], []>
+    : FindXIn2D<Map, Row, [...Col, '']>;
+```
