@@ -59,7 +59,7 @@ type FindX<Arr extends any[], Val extends any[] = []> =
 type FindXIn2D<
   Map extends any[][],
   Row extends any[] = [],
-  Col extends anyp[] = []
+  Col extends any[] = []
 > = Map[Row['length']][Col['length']] extends 'X'
   ? [Row['length'], Col['length']]
   : Col['length'] extends Map[0]['length'] 
